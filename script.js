@@ -388,6 +388,28 @@ const COLORS = [
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         // ===== INIT =====
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         renderColors();
+const music = document.getElementById('bgMusic');
+const btnMusic = document.getElementById('btnMusic');
+let playing = false;
+
+document.body.addEventListener('click', () => {
+  if (!playing) {
+    music.volume = 0.4;
+    music.play();
+    playing = true;
+    btnMusic.textContent = '🔊';
+  }
+}, { once: true });
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btnMusic.textContent = '🔊';
+  } else {
+    music.pause();
+    btnMusic.textContent = '🔇';
+  }
+}
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
